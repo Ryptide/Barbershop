@@ -47,7 +47,18 @@ post '/visit' do
 	if @error != ''
 		return erb :visit
 	end
+	db = get_db
+	db.execute 'insert into 
+	Users
+	 (
+	 Name, Phone, DateStamp, Barber, Color
+	 )
+	 values (?, ?, ?, ?, ?)', [@username, @phone, @datetime, @barber, @color]
 
 	erb "OK, username is #{@username}, #{@phone}, #{@datetime}, #{@barber}, #{@color}"
 
 end
+
+def get_db
+	return SQLite3::Database.new 'barbershop.db' 
+	end
