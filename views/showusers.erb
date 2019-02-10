@@ -1,5 +1,6 @@
 
 <table class="table table-striped">
+	<thead>
 		<tr>
 			<th>Имя</th>
 			<th>Телефон</th>
@@ -7,6 +8,8 @@
 			<th>Парикмахер</th>
 			<th>Цвет</th>
 		</tr>
+	</thead>
+	<tbody>
 		<% @results.each do |row| %>
 		<tr>
 			<td><%= row['Name'] %></td>
@@ -16,4 +19,5 @@
 			<td><%= row['Color'] %></td>
 		</tr>
 		<% end %>
+	</tbody>
 </table>
